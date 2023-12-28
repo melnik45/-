@@ -1,23 +1,59 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.9.34321.82
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonApplication6", "PythonApplication6\PythonApplication6.pyproj", "{18ED7859-129B-446B-BA14-722FEAE984C5}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{18ED7859-129B-446B-BA14-722FEAE984C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18ED7859-129B-446B-BA14-722FEAE984C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {2ACD886E-F61B-49BB-A2A2-A6F86A245D08}
-	EndGlobalSection
-EndGlobal
+# factory_pattern.py
+
+class Product:
+    def display(self):
+        pass
+
+class ConcreteProductA(Product):
+    def display(self):
+        return "Concrete Product A"
+
+class ConcreteProductB(Product):
+    def display(self):
+        return "Concrete Product B"
+
+class Creator:
+    def factory_method(self):
+        pass
+
+    def get_product(self):
+        product = self.factory_method()
+        return product.display()
+
+class ConcreteCreatorA(Creator):
+    def factory_method(self):
+        return ConcreteProductA()
+
+class ConcreteCreatorB(Creator):
+    def factory_method(self):
+        return ConcreteProductB()
+
+def main():
+    creator_a = ConcreteCreatorA()
+    creator_b = ConcreteCreatorB()
+
+    print(creator_a.get_product())  # Output: Concrete Product A
+    print(creator_b.get_product())  # Output: Concrete Product B
+
+if __name__ == "__main__":
+    main()
+git add factory_pattern.py
+git commit -m "Implement Factory Pattern in Python"
+git push origin main
+mkdir patterns
+mv factory_pattern.py patterns/
+# Project Title
+
+## Factory Pattern
+
+### How to Run:
+
+1. Make sure you have Python installed.
+2. Open a terminal and navigate to the `patterns` folder.
+3. Run the following command:
+
+   ```bash
+   python factory_pattern.py
+git add README.md
+git commit -m "Add instructions to README"
+git push origin main
